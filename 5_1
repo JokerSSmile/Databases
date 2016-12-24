@@ -1,1 +1,15 @@
-3 EXPLAIN SELECT * FROM results WHERE IdStudent = 1;
+EXPLAIN:  EXPLAIN SELECT * FROM results WHERE IdStudent = 1;
+
+COMMIT:   START TRANSACTION;
+          UPDATE Students SET SGroup = 'IVT-21' WHERE StudentName = 'Лех Валенса';
+          COMMIT;
+
+ROLLBACK: START TRANSACTION;
+          UPDATE Students SET SGroup = 'BIS-22' WHERE StudentName = 'Юрий Андропов';
+          ROLLBACK;
+          
+PROC:     BEGIN
+          SELECT * FROM students WHERE sGroup = mGroup;
+          END
+          
+TRIGGER:  
