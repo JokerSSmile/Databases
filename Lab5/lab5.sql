@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Дек 24 2016 г., 23:26
+-- Время создания: Дек 24 2016 г., 23:45
 -- Версия сервера: 5.7.14
 -- Версия PHP: 5.6.25
 
@@ -104,7 +104,8 @@ INSERT INTO `students` (`Id`, `StudentName`, `SGroup`) VALUES
 --
 DELIMITER $$
 CREATE TRIGGER `AfterInsert` AFTER INSERT ON `students` FOR EACH ROW BEGIN
-SET @SGroup = 'PS-11';
+INSERT INTO results (Id, IdStudent, IdPCSpecificaion, Result)
+VALUES (11, NEW.Id, 1, 0);
 END
 $$
 DELIMITER ;
@@ -148,12 +149,12 @@ ALTER TABLE `pcspecification`
 -- AUTO_INCREMENT для таблицы `results`
 --
 ALTER TABLE `results`
-  MODIFY `Id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `Id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT для таблицы `students`
 --
 ALTER TABLE `students`
-  MODIFY `Id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `Id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- Ограничения внешнего ключа сохраненных таблиц
 --
