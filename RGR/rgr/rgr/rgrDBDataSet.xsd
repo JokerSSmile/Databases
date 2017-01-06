@@ -141,9 +141,10 @@
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
-              <xs:element name="DepartureTime" msprop:Generator_ColumnVarNameInTable="columnDepartureTime" msprop:Generator_ColumnPropNameInRow="DepartureTime" msprop:Generator_ColumnPropNameInTable="DepartureTimeColumn" msprop:Generator_UserColumnName="DepartureTime" type="xs:string" minOccurs="0" />
-              <xs:element name="ArrivalTime" msprop:Generator_ColumnVarNameInTable="columnArrivalTime" msprop:Generator_ColumnPropNameInRow="ArrivalTime" msprop:Generator_ColumnPropNameInTable="ArrivalTimeColumn" msprop:Generator_UserColumnName="ArrivalTime" type="xs:string" minOccurs="0" />
+              <xs:element name="DepartureTime" msprop:Generator_ColumnVarNameInTable="columnDepartureTime" msprop:Generator_ColumnPropNameInRow="DepartureTime" msprop:Generator_ColumnPropNameInTable="DepartureTimeColumn" msprop:Generator_UserColumnName="DepartureTime" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ArrivalTime" msprop:Generator_ColumnVarNameInTable="columnArrivalTime" msprop:Generator_ColumnPropNameInRow="ArrivalTime" msprop:Generator_ColumnPropNameInTable="ArrivalTimeColumn" msprop:Generator_UserColumnName="ArrivalTime" type="xs:dateTime" minOccurs="0" />
               <xs:element name="Route" msprop:Generator_ColumnVarNameInTable="columnRoute" msprop:Generator_ColumnPropNameInRow="Route" msprop:Generator_ColumnPropNameInTable="RouteColumn" msprop:Generator_UserColumnName="Route" type="xs:string" minOccurs="0" />
+              <xs:element name="Plane" msprop:Generator_ColumnVarNameInTable="columnPlane" msprop:Generator_ColumnPropNameInRow="Plane" msprop:Generator_ColumnPropNameInTable="PlaneColumn" msprop:Generator_UserColumnName="Plane" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -151,8 +152,9 @@
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
-              <xs:element name="PassangerId" msprop:Generator_ColumnVarNameInTable="columnPassangerId" msprop:Generator_ColumnPropNameInRow="PassangerId" msprop:Generator_ColumnPropNameInTable="PassangerIdColumn" msprop:Generator_UserColumnName="PassangerId" type="xs:string" minOccurs="0" />
-              <xs:element name="FlightId" msprop:Generator_ColumnVarNameInTable="columnFlightId" msprop:Generator_ColumnPropNameInRow="FlightId" msprop:Generator_ColumnPropNameInTable="FlightIdColumn" msprop:Generator_UserColumnName="FlightId" type="xs:string" minOccurs="0" />
+              <xs:element name="PassangerId" msprop:Generator_ColumnVarNameInTable="columnPassangerId" msprop:Generator_ColumnPropNameInRow="PassangerId" msprop:Generator_ColumnPropNameInTable="PassangerIdColumn" msprop:Generator_UserColumnName="PassangerId" type="xs:short" minOccurs="0" />
+              <xs:element name="FlightId" msprop:Generator_ColumnVarNameInTable="columnFlightId" msprop:Generator_ColumnPropNameInRow="FlightId" msprop:Generator_ColumnPropNameInTable="FlightIdColumn" msprop:Generator_UserColumnName="FlightId" type="xs:short" minOccurs="0" />
+              <xs:element name="Status" msprop:Generator_ColumnVarNameInTable="columnStatus" msprop:Generator_ColumnPropNameInRow="Status" msprop:Generator_ColumnPropNameInTable="StatusColumn" msprop:Generator_UserColumnName="Status" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -167,6 +169,8 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="PSurname" msprop:Generator_ColumnVarNameInTable="columnPSurname" msprop:Generator_ColumnPropNameInRow="PSurname" msprop:Generator_ColumnPropNameInTable="PSurnameColumn" msprop:Generator_UserColumnName="PSurname" type="xs:string" minOccurs="0" />
+              <xs:element name="Age" msprop:Generator_ColumnVarNameInTable="columnAge" msprop:Generator_ColumnPropNameInRow="Age" msprop:Generator_ColumnPropNameInTable="AgeColumn" msprop:Generator_UserColumnName="Age" type="xs:short" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

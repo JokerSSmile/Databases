@@ -30,66 +30,89 @@
         {
             this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tableTabs = new System.Windows.Forms.TabControl();
+            this.tabPageFlights = new System.Windows.Forms.TabPage();
+            this.searchFlightButton = new System.Windows.Forms.Button();
+            this.flightDataGridView = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.departureTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.arrivalTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.routeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Plane = new System.Windows.Forms.DataGridViewImageColumn();
+            this.flightBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rgrDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rgrDBDataSet = new rgr.rgrDBDataSet();
+            this.browseButton = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.flightSupportingGridView = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passangerIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ticketsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.flightBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.rgrDBDataSet = new rgr.rgrDBDataSet();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.insertFlight = new System.Windows.Forms.Button();
-            this.updateFlight = new System.Windows.Forms.Button();
-            this.flightDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.flightBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.rgrDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.deleteFlight = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.tabPageTickets = new System.Windows.Forms.TabPage();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
             this.ticketsDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ticketsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.insertTicket = new System.Windows.Forms.Button();
+            this.tabPagePassangers = new System.Windows.Forms.TabPage();
+            this.passangersSupportingGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBox8 = new System.Windows.Forms.TextBox();
             this.passangersDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.passangersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.insertPassanger = new System.Windows.Forms.Button();
+            this.update = new System.Windows.Forms.Button();
+            this.delete = new System.Windows.Forms.Button();
             this.flightTableAdapter = new rgr.rgrDBDataSetTableAdapters.FlightTableAdapter();
             this.ticketsTableAdapter = new rgr.rgrDBDataSetTableAdapters.TicketsTableAdapter();
             this.passangersTableAdapter = new rgr.rgrDBDataSetTableAdapters.PassangersTableAdapter();
             this.tableAdapterManager = new rgr.rgrDBDataSetTableAdapters.TableAdapterManager();
-            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchTicketsButton = new System.Windows.Forms.Button();
+            this.searchPassangersButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.flightBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rgrDBDataSet)).BeginInit();
+            this.tableTabs.SuspendLayout();
+            this.tabPageFlights.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.flightDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.flightBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgrDBDataSetBindingSource)).BeginInit();
-            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rgrDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flightSupportingGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ticketsBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flightBindingSource1)).BeginInit();
+            this.tabPageTickets.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ticketsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ticketsBindingSource)).BeginInit();
-            this.tabPage3.SuspendLayout();
+            this.tabPagePassangers.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.passangersSupportingGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.passangersDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.passangersBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -100,47 +123,204 @@
             this.refreshToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(715, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1143, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // tabControl1
+            // refreshToolStripMenuItem
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(12, 27);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(683, 316);
-            this.tabControl1.TabIndex = 1;
+            this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
+            this.refreshToolStripMenuItem.Text = "Refresh";
+            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
             // 
-            // tabPage1
+            // tableTabs
             // 
-            this.tabPage1.AutoScroll = true;
-            this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.textBox3);
-            this.tabPage1.Controls.Add(this.textBox2);
-            this.tabPage1.Controls.Add(this.textBox1);
-            this.tabPage1.Controls.Add(this.insertFlight);
-            this.tabPage1.Controls.Add(this.updateFlight);
-            this.tabPage1.Controls.Add(this.flightDataGridView);
-            this.tabPage1.Controls.Add(this.deleteFlight);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(675, 290);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Flights";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tableTabs.Controls.Add(this.tabPageFlights);
+            this.tableTabs.Controls.Add(this.tabPageTickets);
+            this.tableTabs.Controls.Add(this.tabPagePassangers);
+            this.tableTabs.Location = new System.Drawing.Point(12, 27);
+            this.tableTabs.Name = "tableTabs";
+            this.tableTabs.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tableTabs.SelectedIndex = 0;
+            this.tableTabs.Size = new System.Drawing.Size(1123, 292);
+            this.tableTabs.TabIndex = 1;
+            // 
+            // tabPageFlights
+            // 
+            this.tabPageFlights.AutoScroll = true;
+            this.tabPageFlights.Controls.Add(this.searchFlightButton);
+            this.tabPageFlights.Controls.Add(this.flightDataGridView);
+            this.tabPageFlights.Controls.Add(this.browseButton);
+            this.tabPageFlights.Controls.Add(this.label10);
+            this.tabPageFlights.Controls.Add(this.flightSupportingGridView);
+            this.tabPageFlights.Controls.Add(this.label3);
+            this.tabPageFlights.Controls.Add(this.label2);
+            this.tabPageFlights.Controls.Add(this.label1);
+            this.tabPageFlights.Controls.Add(this.textBox3);
+            this.tabPageFlights.Controls.Add(this.textBox2);
+            this.tabPageFlights.Controls.Add(this.textBox1);
+            this.tabPageFlights.Controls.Add(this.insertFlight);
+            this.tabPageFlights.Location = new System.Drawing.Point(4, 22);
+            this.tabPageFlights.Name = "tabPageFlights";
+            this.tabPageFlights.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageFlights.Size = new System.Drawing.Size(1115, 266);
+            this.tabPageFlights.TabIndex = 0;
+            this.tabPageFlights.Text = "Flight";
+            this.tabPageFlights.UseVisualStyleBackColor = true;
+            // 
+            // searchFlightButton
+            // 
+            this.searchFlightButton.Location = new System.Drawing.Point(428, 235);
+            this.searchFlightButton.Name = "searchFlightButton";
+            this.searchFlightButton.Size = new System.Drawing.Size(89, 25);
+            this.searchFlightButton.TabIndex = 15;
+            this.searchFlightButton.Text = "Search";
+            this.searchFlightButton.UseVisualStyleBackColor = true;
+            this.searchFlightButton.Click += new System.EventHandler(this.searchFlightButton_Click);
+            // 
+            // flightDataGridView
+            // 
+            this.flightDataGridView.AllowUserToAddRows = false;
+            this.flightDataGridView.AllowUserToDeleteRows = false;
+            this.flightDataGridView.AutoGenerateColumns = false;
+            this.flightDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.flightDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn1,
+            this.departureTimeDataGridViewTextBoxColumn,
+            this.arrivalTimeDataGridViewTextBoxColumn,
+            this.routeDataGridViewTextBoxColumn,
+            this.Plane});
+            this.flightDataGridView.DataSource = this.flightBindingSource;
+            this.flightDataGridView.Location = new System.Drawing.Point(9, 6);
+            this.flightDataGridView.MinimumSize = new System.Drawing.Size(0, 64);
+            this.flightDataGridView.Name = "flightDataGridView";
+            this.flightDataGridView.ReadOnly = true;
+            this.flightDataGridView.RowTemplate.Height = 64;
+            this.flightDataGridView.Size = new System.Drawing.Size(660, 184);
+            this.flightDataGridView.TabIndex = 14;
+            this.flightDataGridView.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.FlightDataGridView_RowHeaderMouseClick);
+            // 
+            // idDataGridViewTextBoxColumn1
+            // 
+            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+            this.idDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // departureTimeDataGridViewTextBoxColumn
+            // 
+            this.departureTimeDataGridViewTextBoxColumn.DataPropertyName = "DepartureTime";
+            this.departureTimeDataGridViewTextBoxColumn.HeaderText = "DepartureTime";
+            this.departureTimeDataGridViewTextBoxColumn.Name = "departureTimeDataGridViewTextBoxColumn";
+            this.departureTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // arrivalTimeDataGridViewTextBoxColumn
+            // 
+            this.arrivalTimeDataGridViewTextBoxColumn.DataPropertyName = "ArrivalTime";
+            this.arrivalTimeDataGridViewTextBoxColumn.HeaderText = "ArrivalTime";
+            this.arrivalTimeDataGridViewTextBoxColumn.Name = "arrivalTimeDataGridViewTextBoxColumn";
+            this.arrivalTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // routeDataGridViewTextBoxColumn
+            // 
+            this.routeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.routeDataGridViewTextBoxColumn.DataPropertyName = "Route";
+            this.routeDataGridViewTextBoxColumn.HeaderText = "Route";
+            this.routeDataGridViewTextBoxColumn.Name = "routeDataGridViewTextBoxColumn";
+            this.routeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Plane
+            // 
+            this.Plane.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Plane.DataPropertyName = "Plane";
+            this.Plane.HeaderText = "Logo";
+            this.Plane.Name = "Plane";
+            this.Plane.ReadOnly = true;
+            this.Plane.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Plane.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // flightBindingSource
+            // 
+            this.flightBindingSource.DataMember = "Flight";
+            this.flightBindingSource.DataSource = this.rgrDBDataSetBindingSource;
+            // 
+            // rgrDBDataSetBindingSource
+            // 
+            this.rgrDBDataSetBindingSource.DataSource = this.rgrDBDataSet;
+            this.rgrDBDataSetBindingSource.Position = 0;
+            // 
+            // rgrDBDataSet
+            // 
+            this.rgrDBDataSet.DataSetName = "rgrDBDataSet";
+            this.rgrDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // browseButton
+            // 
+            this.browseButton.Location = new System.Drawing.Point(523, 209);
+            this.browseButton.Name = "browseButton";
+            this.browseButton.Size = new System.Drawing.Size(89, 20);
+            this.browseButton.TabIndex = 14;
+            this.browseButton.Text = "Browse..";
+            this.browseButton.UseVisualStyleBackColor = true;
+            this.browseButton.Click += new System.EventHandler(this.browseButton_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(520, 193);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(36, 13);
+            this.label10.TabIndex = 13;
+            this.label10.Text = "Image";
+            // 
+            // flightSupportingGridView
+            // 
+            this.flightSupportingGridView.AllowUserToAddRows = false;
+            this.flightSupportingGridView.AllowUserToDeleteRows = false;
+            this.flightSupportingGridView.AutoGenerateColumns = false;
+            this.flightSupportingGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.flightSupportingGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.passangerIdDataGridViewTextBoxColumn,
+            this.statusDataGridViewTextBoxColumn});
+            this.flightSupportingGridView.DataSource = this.ticketsBindingSource1;
+            this.flightSupportingGridView.Location = new System.Drawing.Point(675, 6);
+            this.flightSupportingGridView.Name = "flightSupportingGridView";
+            this.flightSupportingGridView.ReadOnly = true;
+            this.flightSupportingGridView.Size = new System.Drawing.Size(433, 254);
+            this.flightSupportingGridView.TabIndex = 5;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // passangerIdDataGridViewTextBoxColumn
+            // 
+            this.passangerIdDataGridViewTextBoxColumn.DataPropertyName = "PassangerId";
+            this.passangerIdDataGridViewTextBoxColumn.HeaderText = "PassangerId";
+            this.passangerIdDataGridViewTextBoxColumn.Name = "passangerIdDataGridViewTextBoxColumn";
+            this.passangerIdDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            this.statusDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ticketsBindingSource1
+            // 
+            this.ticketsBindingSource1.DataMember = "Tickets";
+            this.ticketsBindingSource1.DataSource = this.rgrDBDataSetBindingSource;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(228, 193);
+            this.label3.Location = new System.Drawing.Point(225, 193);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(36, 13);
             this.label3.TabIndex = 11;
@@ -149,7 +329,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(112, 193);
+            this.label2.Location = new System.Drawing.Point(109, 193);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 13);
             this.label2.TabIndex = 10;
@@ -167,9 +347,9 @@
             // textBox3
             // 
             this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.flightBindingSource1, "Route", true));
-            this.textBox3.Location = new System.Drawing.Point(234, 209);
+            this.textBox3.Location = new System.Drawing.Point(231, 209);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(391, 20);
+            this.textBox3.Size = new System.Drawing.Size(286, 20);
             this.textBox3.TabIndex = 8;
             // 
             // flightBindingSource1
@@ -177,15 +357,10 @@
             this.flightBindingSource1.DataMember = "Flight";
             this.flightBindingSource1.DataSource = this.rgrDBDataSet;
             // 
-            // rgrDBDataSet
-            // 
-            this.rgrDBDataSet.DataSetName = "rgrDBDataSet";
-            this.rgrDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // textBox2
             // 
             this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.flightBindingSource1, "ArrivalTime", true));
-            this.textBox2.Location = new System.Drawing.Point(118, 209);
+            this.textBox2.Location = new System.Drawing.Point(115, 209);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(110, 20);
             this.textBox2.TabIndex = 7;
@@ -208,104 +383,100 @@
             this.insertFlight.UseVisualStyleBackColor = true;
             this.insertFlight.Click += new System.EventHandler(this.insertFlight_Click);
             // 
-            // updateFlight
+            // tabPageTickets
             // 
-            this.updateFlight.Location = new System.Drawing.Point(470, 259);
-            this.updateFlight.Name = "updateFlight";
-            this.updateFlight.Size = new System.Drawing.Size(89, 25);
-            this.updateFlight.TabIndex = 4;
-            this.updateFlight.Text = "Update";
-            this.updateFlight.UseVisualStyleBackColor = true;
-            this.updateFlight.Click += new System.EventHandler(this.updateFlight_Click);
+            this.tabPageTickets.AutoScroll = true;
+            this.tabPageTickets.Controls.Add(this.searchTicketsButton);
+            this.tabPageTickets.Controls.Add(this.label7);
+            this.tabPageTickets.Controls.Add(this.textBox7);
+            this.tabPageTickets.Controls.Add(this.ticketsDataGridView);
+            this.tabPageTickets.Controls.Add(this.label5);
+            this.tabPageTickets.Controls.Add(this.label4);
+            this.tabPageTickets.Controls.Add(this.textBox4);
+            this.tabPageTickets.Controls.Add(this.textBox5);
+            this.tabPageTickets.Controls.Add(this.insertTicket);
+            this.tabPageTickets.Location = new System.Drawing.Point(4, 22);
+            this.tabPageTickets.Name = "tabPageTickets";
+            this.tabPageTickets.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageTickets.Size = new System.Drawing.Size(1115, 266);
+            this.tabPageTickets.TabIndex = 1;
+            this.tabPageTickets.Text = "Tickets";
+            this.tabPageTickets.UseVisualStyleBackColor = true;
             // 
-            // flightDataGridView
+            // label7
             // 
-            this.flightDataGridView.AllowUserToAddRows = false;
-            this.flightDataGridView.AllowUserToDeleteRows = false;
-            this.flightDataGridView.AutoGenerateColumns = false;
-            this.flightDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.flightDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9});
-            this.flightDataGridView.DataSource = this.flightBindingSource;
-            this.flightDataGridView.Location = new System.Drawing.Point(6, 6);
-            this.flightDataGridView.Name = "flightDataGridView";
-            this.flightDataGridView.Size = new System.Drawing.Size(666, 184);
-            this.flightDataGridView.TabIndex = 0;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(237, 193);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(37, 13);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "Status";
             // 
-            // dataGridViewTextBoxColumn6
+            // textBox7
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.textBox7.Location = new System.Drawing.Point(240, 209);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(116, 20);
+            this.textBox7.TabIndex = 14;
             // 
-            // dataGridViewTextBoxColumn7
+            // ticketsDataGridView
             // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "DepartureTime";
-            this.dataGridViewTextBoxColumn7.HeaderText = "DepartureTime";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.ticketsDataGridView.AllowUserToAddRows = false;
+            this.ticketsDataGridView.AllowUserToDeleteRows = false;
+            this.ticketsDataGridView.AutoGenerateColumns = false;
+            this.ticketsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ticketsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn12});
+            this.ticketsDataGridView.DataSource = this.ticketsBindingSource;
+            this.ticketsDataGridView.Location = new System.Drawing.Point(6, 6);
+            this.ticketsDataGridView.Name = "ticketsDataGridView";
+            this.ticketsDataGridView.ReadOnly = true;
+            this.ticketsDataGridView.Size = new System.Drawing.Size(663, 184);
+            this.ticketsDataGridView.TabIndex = 13;
             // 
-            // dataGridViewTextBoxColumn8
+            // dataGridViewTextBoxColumn3
             // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "ArrivalTime";
-            this.dataGridViewTextBoxColumn8.HeaderText = "ArrivalTime";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn9
+            // dataGridViewTextBoxColumn4
             // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "Route";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Route";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "PassangerId";
+            this.dataGridViewTextBoxColumn4.HeaderText = "PassangerId";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
-            // flightBindingSource
+            // dataGridViewTextBoxColumn5
             // 
-            this.flightBindingSource.DataMember = "Flight";
-            this.flightBindingSource.DataSource = this.rgrDBDataSetBindingSource;
+            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "FlightId";
+            this.dataGridViewTextBoxColumn5.HeaderText = "FlightId";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
-            // rgrDBDataSetBindingSource
+            // dataGridViewTextBoxColumn12
             // 
-            this.rgrDBDataSetBindingSource.DataSource = this.rgrDBDataSet;
-            this.rgrDBDataSetBindingSource.Position = 0;
+            this.dataGridViewTextBoxColumn12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "Status";
+            this.dataGridViewTextBoxColumn12.HeaderText = "Status";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
             // 
-            // deleteFlight
+            // ticketsBindingSource
             // 
-            this.deleteFlight.Location = new System.Drawing.Point(580, 259);
-            this.deleteFlight.Name = "deleteFlight";
-            this.deleteFlight.Size = new System.Drawing.Size(89, 25);
-            this.deleteFlight.TabIndex = 3;
-            this.deleteFlight.Text = "Delete";
-            this.deleteFlight.UseVisualStyleBackColor = true;
-            this.deleteFlight.Click += new System.EventHandler(this.deleteFlight_Click);
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.AutoScroll = true;
-            this.tabPage2.Controls.Add(this.label5);
-            this.tabPage2.Controls.Add(this.label4);
-            this.tabPage2.Controls.Add(this.textBox4);
-            this.tabPage2.Controls.Add(this.textBox5);
-            this.tabPage2.Controls.Add(this.button4);
-            this.tabPage2.Controls.Add(this.button5);
-            this.tabPage2.Controls.Add(this.button6);
-            this.tabPage2.Controls.Add(this.ticketsDataGridView);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(675, 290);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Tickets";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.ticketsBindingSource.DataMember = "Tickets";
+            this.ticketsBindingSource.DataSource = this.rgrDBDataSet;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(135, 193);
+            this.label5.Location = new System.Drawing.Point(115, 193);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(44, 13);
             this.label5.TabIndex = 13;
@@ -322,7 +493,7 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(138, 209);
+            this.textBox4.Location = new System.Drawing.Point(118, 209);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(116, 20);
             this.textBox4.TabIndex = 11;
@@ -334,136 +505,106 @@
             this.textBox5.Size = new System.Drawing.Size(103, 20);
             this.textBox5.TabIndex = 10;
             // 
-            // button4
+            // insertTicket
             // 
-            this.button4.Location = new System.Drawing.Point(9, 235);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(89, 25);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "Insert";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.insertTicket.Location = new System.Drawing.Point(9, 235);
+            this.insertTicket.Name = "insertTicket";
+            this.insertTicket.Size = new System.Drawing.Size(89, 25);
+            this.insertTicket.TabIndex = 8;
+            this.insertTicket.Text = "Insert";
+            this.insertTicket.UseVisualStyleBackColor = true;
+            this.insertTicket.Click += new System.EventHandler(this.insertTicket_Click);
             // 
-            // button5
+            // tabPagePassangers
             // 
-            this.button5.Location = new System.Drawing.Point(470, 259);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(89, 25);
-            this.button5.TabIndex = 7;
-            this.button5.Text = "Update";
-            this.button5.UseVisualStyleBackColor = true;
+            this.tabPagePassangers.AutoScroll = true;
+            this.tabPagePassangers.Controls.Add(this.searchPassangersButton);
+            this.tabPagePassangers.Controls.Add(this.passangersSupportingGridView);
+            this.tabPagePassangers.Controls.Add(this.label9);
+            this.tabPagePassangers.Controls.Add(this.textBox9);
+            this.tabPagePassangers.Controls.Add(this.label8);
+            this.tabPagePassangers.Controls.Add(this.textBox8);
+            this.tabPagePassangers.Controls.Add(this.passangersDataGridView);
+            this.tabPagePassangers.Controls.Add(this.label6);
+            this.tabPagePassangers.Controls.Add(this.textBox6);
+            this.tabPagePassangers.Controls.Add(this.insertPassanger);
+            this.tabPagePassangers.Location = new System.Drawing.Point(4, 22);
+            this.tabPagePassangers.Name = "tabPagePassangers";
+            this.tabPagePassangers.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPagePassangers.Size = new System.Drawing.Size(1115, 266);
+            this.tabPagePassangers.TabIndex = 2;
+            this.tabPagePassangers.Text = "Passangers";
+            this.tabPagePassangers.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // passangersSupportingGridView
             // 
-            this.button6.Location = new System.Drawing.Point(580, 259);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(89, 25);
-            this.button6.TabIndex = 6;
-            this.button6.Text = "Delete";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.passangersSupportingGridView.AllowUserToAddRows = false;
+            this.passangersSupportingGridView.AllowUserToDeleteRows = false;
+            this.passangersSupportingGridView.AutoGenerateColumns = false;
+            this.passangersSupportingGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.passangersSupportingGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn13,
+            this.dataGridViewTextBoxColumn15,
+            this.dataGridViewTextBoxColumn16});
+            this.passangersSupportingGridView.DataSource = this.ticketsBindingSource;
+            this.passangersSupportingGridView.Location = new System.Drawing.Point(675, 6);
+            this.passangersSupportingGridView.Name = "passangersSupportingGridView";
+            this.passangersSupportingGridView.ReadOnly = true;
+            this.passangersSupportingGridView.Size = new System.Drawing.Size(434, 254);
+            this.passangersSupportingGridView.TabIndex = 18;
             // 
-            // ticketsDataGridView
+            // dataGridViewTextBoxColumn13
             // 
-            this.ticketsDataGridView.AllowUserToAddRows = false;
-            this.ticketsDataGridView.AllowUserToDeleteRows = false;
-            this.ticketsDataGridView.AutoGenerateColumns = false;
-            this.ticketsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ticketsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5});
-            this.ticketsDataGridView.DataSource = this.ticketsBindingSource;
-            this.ticketsDataGridView.Location = new System.Drawing.Point(6, 6);
-            this.ticketsDataGridView.Name = "ticketsDataGridView";
-            this.ticketsDataGridView.ReadOnly = true;
-            this.ticketsDataGridView.Size = new System.Drawing.Size(663, 184);
-            this.ticketsDataGridView.TabIndex = 0;
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn13.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn3
+            // dataGridViewTextBoxColumn15
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "FlightId";
+            this.dataGridViewTextBoxColumn15.HeaderText = "FlightId";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn4
+            // dataGridViewTextBoxColumn16
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "PassangerId";
-            this.dataGridViewTextBoxColumn4.HeaderText = "PassangerId";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "Status";
+            this.dataGridViewTextBoxColumn16.HeaderText = "Status";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn5
+            // label9
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "FlightId";
-            this.dataGridViewTextBoxColumn5.HeaderText = "FlightId";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(224, 193);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(26, 13);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "Age";
             // 
-            // ticketsBindingSource
+            // textBox9
             // 
-            this.ticketsBindingSource.DataMember = "Tickets";
-            this.ticketsBindingSource.DataSource = this.rgrDBDataSet;
+            this.textBox9.Location = new System.Drawing.Point(227, 209);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(103, 20);
+            this.textBox9.TabIndex = 17;
             // 
-            // tabPage3
+            // label8
             // 
-            this.tabPage3.Controls.Add(this.label6);
-            this.tabPage3.Controls.Add(this.textBox6);
-            this.tabPage3.Controls.Add(this.button7);
-            this.tabPage3.Controls.Add(this.button8);
-            this.tabPage3.Controls.Add(this.button9);
-            this.tabPage3.Controls.Add(this.passangersDataGridView);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(675, 290);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Passangers";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(115, 193);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(49, 13);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "Surname";
             // 
-            // label6
+            // textBox8
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 193);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(86, 13);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "Passanger name";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(9, 209);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(103, 20);
-            this.textBox6.TabIndex = 13;
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(9, 235);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(89, 25);
-            this.button7.TabIndex = 11;
-            this.button7.Text = "Insert";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(470, 259);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(89, 25);
-            this.button8.TabIndex = 10;
-            this.button8.Text = "Update";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(580, 259);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(89, 25);
-            this.button9.TabIndex = 9;
-            this.button9.Text = "Delete";
-            this.button9.UseVisualStyleBackColor = true;
+            this.textBox8.Location = new System.Drawing.Point(118, 209);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(103, 20);
+            this.textBox8.TabIndex = 15;
             // 
             // passangersDataGridView
             // 
@@ -473,13 +614,16 @@
             this.passangersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.passangersDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2});
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11});
             this.passangersDataGridView.DataSource = this.passangersBindingSource;
             this.passangersDataGridView.Location = new System.Drawing.Point(6, 6);
             this.passangersDataGridView.Name = "passangersDataGridView";
             this.passangersDataGridView.ReadOnly = true;
             this.passangersDataGridView.Size = new System.Drawing.Size(663, 184);
-            this.passangersDataGridView.TabIndex = 5;
+            this.passangersDataGridView.TabIndex = 14;
+            this.passangersDataGridView.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.PassangersDataGridView_RowHeaderMouseClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -490,15 +634,78 @@
             // 
             // dataGridViewTextBoxColumn2
             // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn2.DataPropertyName = "PName";
             this.dataGridViewTextBoxColumn2.HeaderText = "PName";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "PSurname";
+            this.dataGridViewTextBoxColumn10.HeaderText = "PSurname";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "Age";
+            this.dataGridViewTextBoxColumn11.HeaderText = "Age";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            // 
             // passangersBindingSource
             // 
             this.passangersBindingSource.DataMember = "Passangers";
             this.passangersBindingSource.DataSource = this.rgrDBDataSet;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 193);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Name";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(9, 209);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(103, 20);
+            this.textBox6.TabIndex = 13;
+            // 
+            // insertPassanger
+            // 
+            this.insertPassanger.Location = new System.Drawing.Point(9, 235);
+            this.insertPassanger.Name = "insertPassanger";
+            this.insertPassanger.Size = new System.Drawing.Size(89, 25);
+            this.insertPassanger.TabIndex = 11;
+            this.insertPassanger.Text = "Insert";
+            this.insertPassanger.UseVisualStyleBackColor = true;
+            this.insertPassanger.Click += new System.EventHandler(this.insertPassanger_Click);
+            // 
+            // update
+            // 
+            this.update.Location = new System.Drawing.Point(503, 325);
+            this.update.Name = "update";
+            this.update.Size = new System.Drawing.Size(89, 25);
+            this.update.TabIndex = 4;
+            this.update.Text = "Update";
+            this.update.UseVisualStyleBackColor = true;
+            this.update.Click += new System.EventHandler(this.update_Click);
+            // 
+            // delete
+            // 
+            this.delete.Location = new System.Drawing.Point(598, 325);
+            this.delete.Name = "delete";
+            this.delete.Size = new System.Drawing.Size(89, 25);
+            this.delete.TabIndex = 3;
+            this.delete.Text = "Delete";
+            this.delete.UseVisualStyleBackColor = true;
+            this.delete.Click += new System.EventHandler(this.delete_Click);
             // 
             // flightTableAdapter
             // 
@@ -520,40 +727,57 @@
             this.tableAdapterManager.TicketsTableAdapter = this.ticketsTableAdapter;
             this.tableAdapterManager.UpdateOrder = rgr.rgrDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // refreshToolStripMenuItem
+            // searchTicketsButton
             // 
-            this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
-            this.refreshToolStripMenuItem.Text = "Refresh";
-            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
+            this.searchTicketsButton.Location = new System.Drawing.Point(267, 235);
+            this.searchTicketsButton.Name = "searchTicketsButton";
+            this.searchTicketsButton.Size = new System.Drawing.Size(89, 25);
+            this.searchTicketsButton.TabIndex = 16;
+            this.searchTicketsButton.Text = "Search";
+            this.searchTicketsButton.UseVisualStyleBackColor = true;
+            this.searchTicketsButton.Click += new System.EventHandler(this.searchTicketsButton_Click);
+            // 
+            // searchPassangersButton
+            // 
+            this.searchPassangersButton.Location = new System.Drawing.Point(241, 235);
+            this.searchPassangersButton.Name = "searchPassangersButton";
+            this.searchPassangersButton.Size = new System.Drawing.Size(89, 25);
+            this.searchPassangersButton.TabIndex = 19;
+            this.searchPassangersButton.Text = "Search";
+            this.searchPassangersButton.UseVisualStyleBackColor = true;
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(715, 611);
-            this.Controls.Add(this.tabControl1);
+            this.ClientSize = new System.Drawing.Size(1143, 361);
+            this.Controls.Add(this.tableTabs);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.update);
+            this.Controls.Add(this.delete);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainWindow";
             this.Text = "Database";
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.flightBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rgrDBDataSet)).EndInit();
+            this.tableTabs.ResumeLayout(false);
+            this.tabPageFlights.ResumeLayout(false);
+            this.tabPageFlights.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.flightDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.flightBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgrDBDataSetBindingSource)).EndInit();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rgrDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flightSupportingGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ticketsBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flightBindingSource1)).EndInit();
+            this.tabPageTickets.ResumeLayout(false);
+            this.tabPageTickets.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ticketsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ticketsBindingSource)).EndInit();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
+            this.tabPagePassangers.ResumeLayout(false);
+            this.tabPagePassangers.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.passangersSupportingGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.passangersDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.passangersBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -565,32 +789,20 @@
         private System.Windows.Forms.BindingSource rgrDBDataSetBindingSource;
         private rgrDBDataSet rgrDBDataSet;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabControl tableTabs;
+        private System.Windows.Forms.TabPage tabPageFlights;
+        private System.Windows.Forms.TabPage tabPageTickets;
+        private System.Windows.Forms.TabPage tabPagePassangers;
         private System.Windows.Forms.BindingSource flightBindingSource;
         private rgrDBDataSetTableAdapters.FlightTableAdapter flightTableAdapter;
         private System.Windows.Forms.BindingSource ticketsBindingSource;
         private rgrDBDataSetTableAdapters.TicketsTableAdapter ticketsTableAdapter;
         private System.Windows.Forms.BindingSource passangersBindingSource;
         private rgrDBDataSetTableAdapters.PassangersTableAdapter passangersTableAdapter;
-        private System.Windows.Forms.Button deleteFlight;
-        private System.Windows.Forms.Button updateFlight;
+        private System.Windows.Forms.Button delete;
+        private System.Windows.Forms.Button update;
         private System.Windows.Forms.BindingSource flightBindingSource1;
         private rgrDBDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.DataGridView passangersDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridView flightDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridView ticketsDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.Button insertFlight;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox3;
@@ -598,12 +810,8 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button insertTicket;
+        private System.Windows.Forms.Button insertPassanger;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
@@ -611,6 +819,42 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
+        private System.Windows.Forms.DataGridView passangersDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridView ticketsDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.DataGridView flightSupportingGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn passangerIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource ticketsBindingSource1;
+        private System.Windows.Forms.DataGridView passangersSupportingGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button browseButton;
+        private System.Windows.Forms.DataGridView flightDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn departureTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn arrivalTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn routeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewImageColumn Plane;
+        private System.Windows.Forms.Button searchFlightButton;
+        private System.Windows.Forms.Button searchTicketsButton;
+        private System.Windows.Forms.Button searchPassangersButton;
     }
 }
 

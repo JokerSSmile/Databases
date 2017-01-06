@@ -357,6 +357,8 @@ namespace rgr {
             
             private global::System.Data.DataColumn columnRoute;
             
+            private global::System.Data.DataColumn columnPlane;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public FlightDataTable() {
@@ -424,6 +426,14 @@ namespace rgr {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PlaneColumn {
+                get {
+                    return this.columnPlane;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -459,13 +469,14 @@ namespace rgr {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public FlightRow AddFlightRow(string DepartureTime, string ArrivalTime, string Route) {
+            public FlightRow AddFlightRow(System.DateTime DepartureTime, System.DateTime ArrivalTime, string Route, string Plane) {
                 FlightRow rowFlightRow = ((FlightRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         DepartureTime,
                         ArrivalTime,
-                        Route};
+                        Route,
+                        Plane};
                 rowFlightRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowFlightRow);
                 return rowFlightRow;
@@ -499,6 +510,7 @@ namespace rgr {
                 this.columnDepartureTime = base.Columns["DepartureTime"];
                 this.columnArrivalTime = base.Columns["ArrivalTime"];
                 this.columnRoute = base.Columns["Route"];
+                this.columnPlane = base.Columns["Plane"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -506,12 +518,14 @@ namespace rgr {
             private void InitClass() {
                 this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnId);
-                this.columnDepartureTime = new global::System.Data.DataColumn("DepartureTime", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnDepartureTime = new global::System.Data.DataColumn("DepartureTime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDepartureTime);
-                this.columnArrivalTime = new global::System.Data.DataColumn("ArrivalTime", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnArrivalTime = new global::System.Data.DataColumn("ArrivalTime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnArrivalTime);
                 this.columnRoute = new global::System.Data.DataColumn("Route", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRoute);
+                this.columnPlane = new global::System.Data.DataColumn("Plane", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPlane);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -657,6 +671,8 @@ namespace rgr {
             
             private global::System.Data.DataColumn columnFlightId;
             
+            private global::System.Data.DataColumn columnStatus;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public TicketsDataTable() {
@@ -716,6 +732,14 @@ namespace rgr {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn StatusColumn {
+                get {
+                    return this.columnStatus;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -751,12 +775,13 @@ namespace rgr {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TicketsRow AddTicketsRow(string PassangerId, string FlightId) {
+            public TicketsRow AddTicketsRow(short PassangerId, short FlightId, string Status) {
                 TicketsRow rowTicketsRow = ((TicketsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         PassangerId,
-                        FlightId};
+                        FlightId,
+                        Status};
                 rowTicketsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTicketsRow);
                 return rowTicketsRow;
@@ -789,6 +814,7 @@ namespace rgr {
                 this.columnId = base.Columns["Id"];
                 this.columnPassangerId = base.Columns["PassangerId"];
                 this.columnFlightId = base.Columns["FlightId"];
+                this.columnStatus = base.Columns["Status"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -796,10 +822,12 @@ namespace rgr {
             private void InitClass() {
                 this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnId);
-                this.columnPassangerId = new global::System.Data.DataColumn("PassangerId", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnPassangerId = new global::System.Data.DataColumn("PassangerId", typeof(short), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPassangerId);
-                this.columnFlightId = new global::System.Data.DataColumn("FlightId", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnFlightId = new global::System.Data.DataColumn("FlightId", typeof(short), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFlightId);
+                this.columnStatus = new global::System.Data.DataColumn("Status", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStatus);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -943,6 +971,10 @@ namespace rgr {
             
             private global::System.Data.DataColumn columnPName;
             
+            private global::System.Data.DataColumn columnPSurname;
+            
+            private global::System.Data.DataColumn columnAge;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public PassangersDataTable() {
@@ -994,6 +1026,22 @@ namespace rgr {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PSurnameColumn {
+                get {
+                    return this.columnPSurname;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AgeColumn {
+                get {
+                    return this.columnAge;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1029,11 +1077,13 @@ namespace rgr {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public PassangersRow AddPassangersRow(string PName) {
+            public PassangersRow AddPassangersRow(string PName, string PSurname, short Age) {
                 PassangersRow rowPassangersRow = ((PassangersRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        PName};
+                        PName,
+                        PSurname,
+                        Age};
                 rowPassangersRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPassangersRow);
                 return rowPassangersRow;
@@ -1065,6 +1115,8 @@ namespace rgr {
             internal void InitVars() {
                 this.columnId = base.Columns["Id"];
                 this.columnPName = base.Columns["PName"];
+                this.columnPSurname = base.Columns["PSurname"];
+                this.columnAge = base.Columns["Age"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1074,6 +1126,10 @@ namespace rgr {
                 base.Columns.Add(this.columnId);
                 this.columnPName = new global::System.Data.DataColumn("PName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPName);
+                this.columnPSurname = new global::System.Data.DataColumn("PSurname", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPSurname);
+                this.columnAge = new global::System.Data.DataColumn("Age", typeof(short), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAge);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -1234,10 +1290,10 @@ namespace rgr {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string DepartureTime {
+            public System.DateTime DepartureTime {
                 get {
                     try {
-                        return ((string)(this[this.tableFlight.DepartureTimeColumn]));
+                        return ((global::System.DateTime)(this[this.tableFlight.DepartureTimeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("Значение для столбца \'DepartureTime\' в таблице \'Flight\' равно DBNull.", e);
@@ -1250,10 +1306,10 @@ namespace rgr {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string ArrivalTime {
+            public System.DateTime ArrivalTime {
                 get {
                     try {
-                        return ((string)(this[this.tableFlight.ArrivalTimeColumn]));
+                        return ((global::System.DateTime)(this[this.tableFlight.ArrivalTimeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("Значение для столбца \'ArrivalTime\' в таблице \'Flight\' равно DBNull.", e);
@@ -1277,6 +1333,22 @@ namespace rgr {
                 }
                 set {
                     this[this.tableFlight.RouteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Plane {
+                get {
+                    try {
+                        return ((string)(this[this.tableFlight.PlaneColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Plane\' в таблице \'Flight\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFlight.PlaneColumn] = value;
                 }
             }
             
@@ -1315,6 +1387,18 @@ namespace rgr {
             public void SetRouteNull() {
                 this[this.tableFlight.RouteColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPlaneNull() {
+                return this.IsNull(this.tableFlight.PlaneColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPlaneNull() {
+                this[this.tableFlight.PlaneColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -1344,10 +1428,10 @@ namespace rgr {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string PassangerId {
+            public short PassangerId {
                 get {
                     try {
-                        return ((string)(this[this.tableTickets.PassangerIdColumn]));
+                        return ((short)(this[this.tableTickets.PassangerIdColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("Значение для столбца \'PassangerId\' в таблице \'Tickets\' равно DBNull.", e);
@@ -1360,10 +1444,10 @@ namespace rgr {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string FlightId {
+            public short FlightId {
                 get {
                     try {
-                        return ((string)(this[this.tableTickets.FlightIdColumn]));
+                        return ((short)(this[this.tableTickets.FlightIdColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("Значение для столбца \'FlightId\' в таблице \'Tickets\' равно DBNull.", e);
@@ -1371,6 +1455,22 @@ namespace rgr {
                 }
                 set {
                     this[this.tableTickets.FlightIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Status {
+                get {
+                    try {
+                        return ((string)(this[this.tableTickets.StatusColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Status\' в таблице \'Tickets\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTickets.StatusColumn] = value;
                 }
             }
             
@@ -1396,6 +1496,18 @@ namespace rgr {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetFlightIdNull() {
                 this[this.tableTickets.FlightIdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsStatusNull() {
+                return this.IsNull(this.tableTickets.StatusColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetStatusNull() {
+                this[this.tableTickets.StatusColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1442,6 +1554,38 @@ namespace rgr {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string PSurname {
+                get {
+                    try {
+                        return ((string)(this[this.tablePassangers.PSurnameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'PSurname\' в таблице \'Passangers\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePassangers.PSurnameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public short Age {
+                get {
+                    try {
+                        return ((short)(this[this.tablePassangers.AgeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Age\' в таблице \'Passangers\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePassangers.AgeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsPNameNull() {
                 return this.IsNull(this.tablePassangers.PNameColumn);
             }
@@ -1450,6 +1594,30 @@ namespace rgr {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetPNameNull() {
                 this[this.tablePassangers.PNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPSurnameNull() {
+                return this.IsNull(this.tablePassangers.PSurnameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPSurnameNull() {
+                this[this.tablePassangers.PSurnameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAgeNull() {
+                return this.IsNull(this.tablePassangers.AgeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAgeNull() {
+                this[this.tablePassangers.AgeColumn] = global::System.Convert.DBNull;
             }
         }
         
