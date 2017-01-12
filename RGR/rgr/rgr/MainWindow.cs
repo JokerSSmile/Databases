@@ -15,6 +15,7 @@ namespace rgr
 {
     public partial class MainWindow : Form
     {
+        private static string currentSelectInPassangers;
         private static string updValue;
         private static string id;
         private static string cellHeader;
@@ -29,22 +30,24 @@ namespace rgr
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
-            LoadTabView();
+            loadTabView();
         }
 
-        public void LoadTabView()
+        public void loadTabView()
         {
             sb = new OleDbConnectionStringBuilder();
             sb.Provider = "Microsoft.ACE.OLEDB.15.0";
             sb.DataSource = @"C:\Users\oleg\Documents\Visual Studio 2015\Projects\Database\rgr\rgr\rgrDB.accdb";
             conn = new OleDbConnection(sb.ConnectionString);
-            flightDataGridView.DataSource = FillTable("SELECT * FROM Flight");
-            ticketsDataGridView.DataSource = FillTable("SELECT * FROM Tickets");
-            passangersDataGridView.DataSource = FillTable("SELECT * FROM Passangers");
+            flightDataGridView.DataSource = fillTable("SELECT * FROM Flight");
+            ticketsDataGridView.DataSource = fillTable("SELECT * FROM Tickets");
+            passangersDataGridView.DataSource = fillTable("SELECT * FROM Passangers");
+            currentSelectInPassangers = "";
+            updateAverageValue(null, null);
         }
 
-        private DataTable FillTable(string sql)
-        {
+        private DataTable fillTable(string sql)
+            {
             DataTable table = new DataTable();
             using (OleDbDataAdapter da = new OleDbDataAdapter(sql, conn))
             {
@@ -58,6 +61,26 @@ namespace rgr
                     MessageBox.Show(ex.Message);
                 }
                 
+            }
+
+            return table;
+        }
+
+        private DataTable fillTable(OleDbCommand cmd)
+        {
+            DataTable table = new DataTable();
+            using (OleDbDataAdapter da = new OleDbDataAdapter(cmd))
+            {
+                try
+                {
+                    da.Fill(table);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    MessageBox.Show(ex.Message);
+                }
+
             }
             return table;
         }
@@ -77,7 +100,7 @@ namespace rgr
                 cmd.Parameters.Add("@DepartureTime", OleDbType.DBDate).Value = dTime;
                 cmd.Parameters.Add("@ArrivalTime", OleDbType.DBDate).Value = aTime;
                 cmd.Parameters.Add("@Route", OleDbType.VarChar).Value = route;
-                cmd.Parameters.Add("@Img", OleDbType.Binary).Value = ImageFromFileToByte(imageFileName);
+                cmd.Parameters.Add("@Img", OleDbType.Binary).Value = imageFromFileToByte(imageFileName);
 
                 cmd.ExecuteNonQuery();
                 conn.Close();
@@ -88,19 +111,21 @@ namespace rgr
             }
             catch
             {
-                MessageBox.Show("Необходимо корректно заполнить данные!\nВозможно не заполнены все поля\nИли неверный формат введенных данных");
+                MessageBox.Show("Необходимо корректно заполнить данные!\nВсе поля обязательны для заполнения!\nИли неверный формат введенных данных");
             }
-
-            conn.Close();
-            LoadTabView();
+            finally
+            {
+                conn.Close();
+            }
+            loadTabView();
         }
 
         private void insertTicket_Click(object sender, EventArgs e)
         {
             try
             {
-                string passangerId = textBox5.Text;
-                string flightId = textBox4.Text;
+                string passangerId = passangerIdComboBox.Text;
+                string flightId = flightIdComboBox.Text;
                 string status = textBox7.Text;
 
                 OleDbCommand cmd = new OleDbCommand("INSERT into Tickets (PassangerId, FlightId, Status) Values(@passangerId, @flightId, @status)");
@@ -120,11 +145,14 @@ namespace rgr
             }
             catch
             {
-                MessageBox.Show("Необходимо корректно заполнить данные!\nВозможно не заполнены все поля\nИли неверный формат введенных данных");
+                MessageBox.Show("Необходимо корректно заполнить данные!\nВсе поля обязательны для заполнения!\nИли неверный формат введенных данных");
+            }
+            finally
+            {
+                conn.Close();
             }
 
-            conn.Close();
-            LoadTabView();
+            loadTabView();
         }
 
         private void insertPassanger_Click(object sender, EventArgs e)
@@ -158,16 +186,19 @@ namespace rgr
             }
             catch
             {
-                MessageBox.Show("Необходимо корректно заполнить данные!\nВозможно не заполнены все поля\nИли неверный формат введенных данных");
+                MessageBox.Show("Необходимо корректно заполнить данные!\nВсе поля обязательны для заполнения!\nИли неверный формат введенных данных");
+            }
+            finally
+            {
+                conn.Close();
             }
 
-            conn.Close();
-            LoadTabView();
+            loadTabView();
         }
 
         private void delete_Click(object sender, EventArgs e)
         {
-            DataGridView currentGrigView = GetCurrentGridView();
+            DataGridView currentGrigView = getCurrentGridView();
 
             conn.Open();
             foreach (DataGridViewRow row in currentGrigView.SelectedRows)
@@ -175,18 +206,18 @@ namespace rgr
                 if (row.Selected)
                 {
                     string str = currentGrigView.Rows[row.Index].Cells[0].Value.ToString();
-                    OleDbCommand cmd = new OleDbCommand("DELETE FROM " + GetCurrentTabName() + " WHERE Id = " + int.Parse(str), conn);
+                    OleDbCommand cmd = new OleDbCommand("DELETE FROM " + getCurrentTabName() + " WHERE Id = " + int.Parse(str), conn);
                     cmd.ExecuteNonQuery();
                 }
             }
             conn.Close();
-            LoadTabView();
+            loadTabView();
         }
 
         private void update_Click(object sender, EventArgs e)
         {
             Type valueType = null;
-            DataGridView currentGrigView = GetCurrentGridView();
+            DataGridView currentGrigView = getCurrentGridView();
             foreach (DataGridViewCell cell in currentGrigView.SelectedCells)
             {
                 if (cell.Selected)
@@ -211,7 +242,7 @@ namespace rgr
             try
             {
                 conn.Open();
-                OleDbCommand cmd = new OleDbCommand("UPDATE " + GetCurrentTabName() + " SET " + cellHeader + " = '" + value + "' WHERE Id = " + id + ";", conn);
+                OleDbCommand cmd = new OleDbCommand("UPDATE " + getCurrentTabName() + " SET " + cellHeader + " = '" + value + "' WHERE Id = " + id + ";", conn);
                 cmd.ExecuteNonQuery();
             }
             catch (OleDbException ex)
@@ -222,24 +253,27 @@ namespace rgr
             {
                 MessageBox.Show("Необходимо корректно заполнить данные!");
             }
+            finally
+            {
+                conn.Close();
+            }
 
-            conn.Close();
-            LoadTabView();
+            loadTabView();
         }
 
         private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LoadTabView();
+            loadTabView();
         }
 
-        private string GetCurrentTabName()
+        private string getCurrentTabName()
         {
             return tableTabs.SelectedTab.Text;
         }
 
-        private DataGridView GetCurrentGridView()
+        private DataGridView getCurrentGridView()
         {
-            string currentTab = GetCurrentTabName();
+            string currentTab = getCurrentTabName();
             if (currentTab == "Flight")
             {
                 return flightDataGridView;
@@ -255,16 +289,16 @@ namespace rgr
             return null;
         }
 
-        private void FlightDataGridView_RowHeaderMouseClick(object sender, EventArgs e)
+        private void flightDataGridView_RowHeaderMouseClick(object sender, EventArgs e)
         {
             string id = flightDataGridView.SelectedRows[0].Cells[0].Value.ToString();
-            flightSupportingGridView.DataSource = FillTable("SELECT * FROM Tickets WHERE FlightId = " + id + ";");
+            flightSupportingGridView.DataSource = fillTable("SELECT * FROM Tickets WHERE FlightId = " + id + ";");
         }
 
-        private void PassangersDataGridView_RowHeaderMouseClick(object sender, EventArgs e)
+        private void passangersDataGridView_RowHeaderMouseClick(object sender, EventArgs e)
         {
             string id = passangersDataGridView.SelectedRows[0].Cells[0].Value.ToString();
-            passangersSupportingGridView.DataSource = FillTable("SELECT * FROM Tickets WHERE PassangerId = " + id + ";");
+            passangersSupportingGridView.DataSource = fillTable("SELECT * FROM Tickets WHERE PassangerId = " + id + ";");
         }
 
         private void browseButton_Click(object sender, EventArgs e)
@@ -277,7 +311,7 @@ namespace rgr
             }
         }
 
-        public byte[] ImageFromFileToByte(string filename)
+        public byte[] imageFromFileToByte(string filename)
         {
             Bitmap bmp = new Bitmap(filename);
             ImageConverter converter = new ImageConverter();
@@ -286,22 +320,97 @@ namespace rgr
 
         private void searchFlightButton_Click(object sender, EventArgs e)
         {
-            string firstParam = textBox1.Text == "" ? null : "DepartureTime = '" + textBox1.Text + "'";
-            string secondParam = textBox2.Text == "" ? null : "ArrivalTime = '" + textBox2.Text + "'";
-            //string secondParam = textBox2.Text == "" ? null : "STR_TO_DATE('ArrivalTime', '%dd, %mm, %yy')=" + textBox2.Text + " ";
-            string thirdParam = textBox3.Text == "" ? null : "Route = '" + textBox3.Text + "'";
-            //flightDataGridView.DataSource = FillTable("SELECT * FROM Flight WHERE " + firstParam + secondParam + thirdParam + " ;");
-            flightDataGridView.DataSource = FillTable("SELECT * FROM Flight WHERE \"ArrivalTime\"=\"05.01.2017\";");
+            if (textBox1.Text == "" && textBox2.Text == "" && textBox3.Text == "")
+            {
+                ticketsDataGridView.DataSource = fillTable("SELECT * FROM Flight;");
+                return;
+            }
+            string sqlQuery = "SELECT * FROM Flight WHERE ";
+            sqlQuery += textBox1.Text == "" ? "DepartureTime IS NOT NULL AND " : "DepartureTime=DateValue('" + textBox1.Text + "') AND ";
+            sqlQuery += textBox2.Text == "" ? "ArrivalTime IS NOT NULL AND " : "ArrivalTime=DateValue('" + textBox2.Text + "') AND ";
+            sqlQuery += textBox3.Text == "" ? "Route IS NOT NULL" : "Route='" + textBox3.Text + "'";
+            sqlQuery += ";";
+
+            flightDataGridView.DataSource = fillTable(sqlQuery);
         }
 
         private void searchTicketsButton_Click(object sender, EventArgs e)
         {
-            string firstParam = textBox5.Text == "" ? null : "PassangerId = " + textBox5.Text + " ";
-            string secondParam = textBox4.Text == "" ? null : "FlightId = " + textBox4.Text + " ";
-            string thirdParam = textBox7.Text == "" ? null : "Status = '" + textBox7.Text + "'";
-            ticketsDataGridView.DataSource = FillTable("SELECT * FROM Tickets WHERE " + firstParam +
-                (secondParam == null ? null : "AND ") + secondParam + (thirdParam == null ? null: "AND ") + thirdParam + " ;");
+            if (passangerIdComboBox.Text == "" && flightIdComboBox.Text == "" && textBox7.Text == "")
+            {
+                ticketsDataGridView.DataSource = fillTable("SELECT * FROM Tickets;");
+                return;
+            }
+            string sqlQuery = "SELECT * FROM Tickets WHERE ";
+            sqlQuery += passangerIdComboBox.Text == "" ? "PassangerId IS NOT NULL AND " : "PassangerId=" + passangerIdComboBox.Text + " AND ";
+            sqlQuery += flightIdComboBox.Text == "" ? "FlightId IS NOT NULL AND " : "FlightId=" + flightIdComboBox.Text + " AND ";
+            sqlQuery += textBox7.Text == "" ? "Status IS NOT NULL" : "Status='" + textBox7.Text + "'";
+            sqlQuery += ";";
 
+            ticketsDataGridView.DataSource = fillTable(sqlQuery);
+        }
+
+        private void searchPassangersButton_Click(object sender, EventArgs e)
+        {
+            string sqlQuery = "";
+            if (textBox6.Text == "" && textBox8.Text == "" && textBox9.Text == "")
+            {
+                currentSelectInPassangers = sqlQuery;
+                passangersDataGridView.DataSource = fillTable("SELECT * FROM Passangers;");
+                return;
+            }
+            string sqlBase = "SELECT * FROM Passangers WHERE ";
+            sqlQuery += textBox6.Text == "" ? "PName IS NOT NULL AND " : "PName='" + textBox6.Text + "' AND ";
+            sqlQuery += textBox8.Text == "" ? "PSurname IS NOT NULL AND " : "PSurname='" + textBox8.Text + "' AND ";
+            sqlQuery += textBox9.Text == "" ? "Age IS NOT NULL" : "Age=" + textBox9.Text+ "";
+            sqlQuery += ";";
+            currentSelectInPassangers = sqlQuery;
+
+            passangersDataGridView.DataSource = fillTable(sqlBase + sqlQuery);
+            updateAverageValue(null, null);
+        }
+
+        private void passangerIdComboBox_Click(object sender, EventArgs e)
+        {
+            List<string> passangersIds = passangersDataGridView.Rows
+                             .OfType<DataGridViewRow>()
+                             .Select(row => row.Cells[0].Value.ToString())
+                             .ToList();
+
+            passangerIdComboBox.Items.Clear();
+            passangerIdComboBox.Items.AddRange(passangersIds.ToArray());
+        }
+
+        private void flightIdComboBox_Click(object sender, EventArgs e)
+        {
+            List<string> flightsIds = flightDataGridView.Rows
+                             .OfType<DataGridViewRow>()
+                             .Select(row => row.Cells[0].Value.ToString())
+                             .ToList();
+
+            flightIdComboBox.Items.Clear();
+            flightIdComboBox.Items.AddRange(flightsIds.ToArray());
+        }
+
+        private void updateAverageValue(object sender, EventArgs e)
+        {
+            if (tableTabs.SelectedIndex == 2)
+            {
+                conn.Open();
+                string sqlQuery = "SELECT AVG(Age) FROM Passangers";
+                string selectQuery = currentSelectInPassangers;
+                if (selectQuery != "")
+                {
+                    sqlQuery += " WHERE " + selectQuery;
+                }
+                else
+                {
+                    sqlQuery += ";";
+                }
+                OleDbCommand com = new OleDbCommand(sqlQuery, conn);
+                textBox4.Text = com.ExecuteScalar().ToString();
+                conn.Close();
+            }
         }
     }
 }

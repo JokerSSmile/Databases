@@ -1,7 +1,6 @@
 C:\Users\oleg\Documents\Visual Studio 2015\Projects\Database\rgr\rgr\bin\Debug\rgr.exe.config
 C:\Users\oleg\Documents\Visual Studio 2015\Projects\Database\rgr\rgr\bin\Debug\rgr.exe
 C:\Users\oleg\Documents\Visual Studio 2015\Projects\Database\rgr\rgr\bin\Debug\rgr.pdb
-C:\Users\oleg\Documents\Visual Studio 2015\Projects\Database\rgr\rgr\obj\Debug\rgr.csprojResolveAssemblyReference.cache
 C:\Users\oleg\Documents\Visual Studio 2015\Projects\Database\rgr\rgr\obj\Debug\rgr.MainWindow.resources
 C:\Users\oleg\Documents\Visual Studio 2015\Projects\Database\rgr\rgr\obj\Debug\rgr.Properties.Resources.resources
 C:\Users\oleg\Documents\Visual Studio 2015\Projects\Database\rgr\rgr\obj\Debug\rgr.csproj.GenerateResource.Cache
@@ -18,3 +17,4 @@ C:\Users\oleg\Documents\Visual Studio 2015\Projects\Database\rgr\rgr\bin\Debug\E
 C:\Users\oleg\Documents\Visual Studio 2015\Projects\Database\rgr\rgr\obj\Debug\Interop.ADODB.dll
 C:\Users\oleg\Documents\Visual Studio 2015\Projects\Database\rgr\rgr\obj\Debug\rgr.csproj.ResolveComReference.cache
 C:\Users\oleg\Documents\Visual Studio 2015\Projects\Database\rgr\rgr\obj\Debug\rgr.UpdatePopUp.resources
+C:\Users\oleg\Documents\Visual Studio 2015\Projects\Database\rgr\rgr\obj\Debug\rgr.csprojResolveAssemblyReference.cache

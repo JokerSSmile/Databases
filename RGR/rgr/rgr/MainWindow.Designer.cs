@@ -59,6 +59,9 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.insertFlight = new System.Windows.Forms.Button();
             this.tabPageTickets = new System.Windows.Forms.TabPage();
+            this.flightIdComboBox = new System.Windows.Forms.ComboBox();
+            this.passangerIdComboBox = new System.Windows.Forms.ComboBox();
+            this.searchTicketsButton = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.ticketsDataGridView = new System.Windows.Forms.DataGridView();
@@ -69,10 +72,11 @@
             this.ticketsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.insertTicket = new System.Windows.Forms.Button();
             this.tabPagePassangers = new System.Windows.Forms.TabPage();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.searchPassangersButton = new System.Windows.Forms.Button();
             this.passangersSupportingGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -96,8 +100,6 @@
             this.ticketsTableAdapter = new rgr.rgrDBDataSetTableAdapters.TicketsTableAdapter();
             this.passangersTableAdapter = new rgr.rgrDBDataSetTableAdapters.PassangersTableAdapter();
             this.tableAdapterManager = new rgr.rgrDBDataSetTableAdapters.TableAdapterManager();
-            this.searchTicketsButton = new System.Windows.Forms.Button();
-            this.searchPassangersButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tableTabs.SuspendLayout();
             this.tabPageFlights.SuspendLayout();
@@ -145,6 +147,7 @@
             this.tableTabs.SelectedIndex = 0;
             this.tableTabs.Size = new System.Drawing.Size(1123, 292);
             this.tableTabs.TabIndex = 1;
+            this.tableTabs.Selected += new System.Windows.Forms.TabControlEventHandler(this.updateAverageValue);
             // 
             // tabPageFlights
             // 
@@ -199,7 +202,7 @@
             this.flightDataGridView.RowTemplate.Height = 64;
             this.flightDataGridView.Size = new System.Drawing.Size(660, 184);
             this.flightDataGridView.TabIndex = 14;
-            this.flightDataGridView.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.FlightDataGridView_RowHeaderMouseClick);
+            this.flightDataGridView.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.flightDataGridView_RowHeaderMouseClick);
             // 
             // idDataGridViewTextBoxColumn1
             // 
@@ -386,14 +389,14 @@
             // tabPageTickets
             // 
             this.tabPageTickets.AutoScroll = true;
+            this.tabPageTickets.Controls.Add(this.flightIdComboBox);
+            this.tabPageTickets.Controls.Add(this.passangerIdComboBox);
             this.tabPageTickets.Controls.Add(this.searchTicketsButton);
             this.tabPageTickets.Controls.Add(this.label7);
             this.tabPageTickets.Controls.Add(this.textBox7);
             this.tabPageTickets.Controls.Add(this.ticketsDataGridView);
             this.tabPageTickets.Controls.Add(this.label5);
             this.tabPageTickets.Controls.Add(this.label4);
-            this.tabPageTickets.Controls.Add(this.textBox4);
-            this.tabPageTickets.Controls.Add(this.textBox5);
             this.tabPageTickets.Controls.Add(this.insertTicket);
             this.tabPageTickets.Location = new System.Drawing.Point(4, 22);
             this.tabPageTickets.Name = "tabPageTickets";
@@ -403,10 +406,38 @@
             this.tabPageTickets.Text = "Tickets";
             this.tabPageTickets.UseVisualStyleBackColor = true;
             // 
+            // flightIdComboBox
+            // 
+            this.flightIdComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.flightIdComboBox.Location = new System.Drawing.Point(118, 209);
+            this.flightIdComboBox.Name = "flightIdComboBox";
+            this.flightIdComboBox.Size = new System.Drawing.Size(112, 21);
+            this.flightIdComboBox.TabIndex = 18;
+            this.flightIdComboBox.Click += new System.EventHandler(this.flightIdComboBox_Click);
+            // 
+            // passangerIdComboBox
+            // 
+            this.passangerIdComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.passangerIdComboBox.Location = new System.Drawing.Point(6, 209);
+            this.passangerIdComboBox.Name = "passangerIdComboBox";
+            this.passangerIdComboBox.Size = new System.Drawing.Size(106, 21);
+            this.passangerIdComboBox.TabIndex = 17;
+            this.passangerIdComboBox.Click += new System.EventHandler(this.passangerIdComboBox_Click);
+            // 
+            // searchTicketsButton
+            // 
+            this.searchTicketsButton.Location = new System.Drawing.Point(267, 235);
+            this.searchTicketsButton.Name = "searchTicketsButton";
+            this.searchTicketsButton.Size = new System.Drawing.Size(89, 25);
+            this.searchTicketsButton.TabIndex = 16;
+            this.searchTicketsButton.Text = "Search";
+            this.searchTicketsButton.UseVisualStyleBackColor = true;
+            this.searchTicketsButton.Click += new System.EventHandler(this.searchTicketsButton_Click);
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(237, 193);
+            this.label7.Location = new System.Drawing.Point(233, 193);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(37, 13);
             this.label7.TabIndex = 15;
@@ -414,7 +445,7 @@
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(240, 209);
+            this.textBox7.Location = new System.Drawing.Point(236, 209);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(116, 20);
             this.textBox7.TabIndex = 14;
@@ -491,20 +522,6 @@
             this.label4.TabIndex = 12;
             this.label4.Text = "Passanger Id";
             // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(118, 209);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(116, 20);
-            this.textBox4.TabIndex = 11;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(9, 209);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(103, 20);
-            this.textBox5.TabIndex = 10;
-            // 
             // insertTicket
             // 
             this.insertTicket.Location = new System.Drawing.Point(9, 235);
@@ -518,6 +535,8 @@
             // tabPagePassangers
             // 
             this.tabPagePassangers.AutoScroll = true;
+            this.tabPagePassangers.Controls.Add(this.label11);
+            this.tabPagePassangers.Controls.Add(this.textBox4);
             this.tabPagePassangers.Controls.Add(this.searchPassangersButton);
             this.tabPagePassangers.Controls.Add(this.passangersSupportingGridView);
             this.tabPagePassangers.Controls.Add(this.label9);
@@ -535,6 +554,35 @@
             this.tabPagePassangers.TabIndex = 2;
             this.tabPagePassangers.Text = "Passangers";
             this.tabPagePassangers.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(438, 193);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(50, 13);
+            this.label11.TabIndex = 21;
+            this.label11.Text = "Average:";
+            // 
+            // textBox4
+            // 
+            this.textBox4.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox4.Location = new System.Drawing.Point(494, 190);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            this.textBox4.Size = new System.Drawing.Size(175, 20);
+            this.textBox4.TabIndex = 20;
+            // 
+            // searchPassangersButton
+            // 
+            this.searchPassangersButton.Location = new System.Drawing.Point(241, 235);
+            this.searchPassangersButton.Name = "searchPassangersButton";
+            this.searchPassangersButton.Size = new System.Drawing.Size(89, 25);
+            this.searchPassangersButton.TabIndex = 19;
+            this.searchPassangersButton.Text = "Search";
+            this.searchPassangersButton.UseVisualStyleBackColor = true;
+            this.searchPassangersButton.Click += new System.EventHandler(this.searchPassangersButton_Click);
             // 
             // passangersSupportingGridView
             // 
@@ -623,7 +671,7 @@
             this.passangersDataGridView.ReadOnly = true;
             this.passangersDataGridView.Size = new System.Drawing.Size(663, 184);
             this.passangersDataGridView.TabIndex = 14;
-            this.passangersDataGridView.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.PassangersDataGridView_RowHeaderMouseClick);
+            this.passangersDataGridView.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.passangersDataGridView_RowHeaderMouseClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -689,7 +737,7 @@
             // 
             // update
             // 
-            this.update.Location = new System.Drawing.Point(503, 325);
+            this.update.Location = new System.Drawing.Point(503, 324);
             this.update.Name = "update";
             this.update.Size = new System.Drawing.Size(89, 25);
             this.update.TabIndex = 4;
@@ -726,25 +774,6 @@
             this.tableAdapterManager.PassangersTableAdapter = this.passangersTableAdapter;
             this.tableAdapterManager.TicketsTableAdapter = this.ticketsTableAdapter;
             this.tableAdapterManager.UpdateOrder = rgr.rgrDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // searchTicketsButton
-            // 
-            this.searchTicketsButton.Location = new System.Drawing.Point(267, 235);
-            this.searchTicketsButton.Name = "searchTicketsButton";
-            this.searchTicketsButton.Size = new System.Drawing.Size(89, 25);
-            this.searchTicketsButton.TabIndex = 16;
-            this.searchTicketsButton.Text = "Search";
-            this.searchTicketsButton.UseVisualStyleBackColor = true;
-            this.searchTicketsButton.Click += new System.EventHandler(this.searchTicketsButton_Click);
-            // 
-            // searchPassangersButton
-            // 
-            this.searchPassangersButton.Location = new System.Drawing.Point(241, 235);
-            this.searchPassangersButton.Name = "searchPassangersButton";
-            this.searchPassangersButton.Size = new System.Drawing.Size(89, 25);
-            this.searchPassangersButton.TabIndex = 19;
-            this.searchPassangersButton.Text = "Search";
-            this.searchPassangersButton.UseVisualStyleBackColor = true;
             // 
             // MainWindow
             // 
@@ -808,8 +837,6 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Button insertTicket;
         private System.Windows.Forms.Button insertPassanger;
         private System.Windows.Forms.Label label2;
@@ -855,6 +882,10 @@
         private System.Windows.Forms.Button searchFlightButton;
         private System.Windows.Forms.Button searchTicketsButton;
         private System.Windows.Forms.Button searchPassangersButton;
+        private System.Windows.Forms.ComboBox passangerIdComboBox;
+        private System.Windows.Forms.ComboBox flightIdComboBox;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label11;
     }
 }
 
