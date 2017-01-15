@@ -301,6 +301,14 @@ namespace rgr
             passangersSupportingGridView.DataSource = fillTable("SELECT * FROM Tickets WHERE PassangerId = " + id + ";");
         }
 
+        private void ticketsDataGridView_RowHeaderMouseClick(object sender, EventArgs e)
+        {
+            string passangerId = ticketsDataGridView.SelectedRows[0].Cells[1].Value.ToString();
+            string flightId = ticketsDataGridView.SelectedRows[0].Cells[2].Value.ToString();
+            ticketsFlightsDataGridView.DataSource = fillTable("SELECT * FROM Flight WHERE Id = " + flightId + ";");
+            ticketsPassangersDataGridView.DataSource = fillTable("SELECT * FROM Passangers WHERE Id = " + passangerId + ";");
+        }
+
         private void browseButton_Click(object sender, EventArgs e)
         {
             OpenFileDialog fileDialog = new OpenFileDialog();
@@ -408,9 +416,25 @@ namespace rgr
                     sqlQuery += ";";
                 }
                 OleDbCommand com = new OleDbCommand(sqlQuery, conn);
-                textBox4.Text = com.ExecuteScalar().ToString();
+                try
+                {
+                    textBox4.Text = com.ExecuteScalar().ToString();
+                }
+                catch (Exception){	}
                 conn.Close();
             }
+        }
+
+        private void passangersListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReportWindow report = new ReportWindow(0);
+            report.Show();
+        }
+
+        private void flightsInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReportWindow report = new ReportWindow(1);
+            report.Show();
         }
     }
 }
