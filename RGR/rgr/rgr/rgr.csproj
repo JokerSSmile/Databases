@@ -76,6 +76,12 @@
       <DependentUpon>FlightInfo.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="PassangersForSelectedFlight.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PassangersForSelectedFlight.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="PassangersList.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -113,6 +119,10 @@
     <EmbeddedResource Include="FlightInfo.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>FlightInfo.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PassangersForSelectedFlight.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PassangersForSelectedFlight.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="PassangersList.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

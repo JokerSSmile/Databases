@@ -49,10 +49,7 @@
             this.browseButton = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.flightSupportingGridView = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passangerIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ticketsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.passangersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -66,7 +63,6 @@
             this.pNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pSurnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passangersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ticketsFlightsDataGridView = new System.Windows.Forms.DataGridView();
             this.departureTimeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.arrivalTimeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -106,12 +102,16 @@
             this.label6 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.insertPassanger = new System.Windows.Forms.Button();
+            this.ticketsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.update = new System.Windows.Forms.Button();
             this.delete = new System.Windows.Forms.Button();
             this.flightTableAdapter = new rgr.rgrDBDataSetTableAdapters.FlightTableAdapter();
             this.ticketsTableAdapter = new rgr.rgrDBDataSetTableAdapters.TicketsTableAdapter();
             this.passangersTableAdapter = new rgr.rgrDBDataSetTableAdapters.PassangersTableAdapter();
             this.tableAdapterManager = new rgr.rgrDBDataSetTableAdapters.TableAdapterManager();
+            this.pNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pSurnameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ageDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.tableTabs.SuspendLayout();
             this.tabPageFlights.SuspendLayout();
@@ -120,17 +120,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.rgrDBDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgrDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.flightSupportingGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ticketsBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.passangersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.flightBindingSource1)).BeginInit();
             this.tabPageTickets.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ticketsPassangersDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.passangersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ticketsFlightsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ticketsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ticketsBindingSource)).BeginInit();
             this.tabPagePassangers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.passangersSupportingGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.passangersDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ticketsBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -163,14 +163,14 @@
             // passangersListToolStripMenuItem
             // 
             this.passangersListToolStripMenuItem.Name = "passangersListToolStripMenuItem";
-            this.passangersListToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.passangersListToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.passangersListToolStripMenuItem.Text = "Passangers list";
             this.passangersListToolStripMenuItem.Click += new System.EventHandler(this.passangersListToolStripMenuItem_Click);
             // 
             // flightsInfoToolStripMenuItem
             // 
             this.flightsInfoToolStripMenuItem.Name = "flightsInfoToolStripMenuItem";
-            this.flightsInfoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.flightsInfoToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.flightsInfoToolStripMenuItem.Text = "Tickets info";
             this.flightsInfoToolStripMenuItem.Click += new System.EventHandler(this.flightsInfoToolStripMenuItem_Click);
             // 
@@ -322,41 +322,20 @@
             this.flightSupportingGridView.AutoGenerateColumns = false;
             this.flightSupportingGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.flightSupportingGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.passangerIdDataGridViewTextBoxColumn,
-            this.statusDataGridViewTextBoxColumn});
-            this.flightSupportingGridView.DataSource = this.ticketsBindingSource1;
+            this.pNameDataGridViewTextBoxColumn1,
+            this.pSurnameDataGridViewTextBoxColumn1,
+            this.ageDataGridViewTextBoxColumn1});
+            this.flightSupportingGridView.DataSource = this.passangersBindingSource;
             this.flightSupportingGridView.Location = new System.Drawing.Point(675, 6);
             this.flightSupportingGridView.Name = "flightSupportingGridView";
             this.flightSupportingGridView.ReadOnly = true;
             this.flightSupportingGridView.Size = new System.Drawing.Size(433, 254);
             this.flightSupportingGridView.TabIndex = 5;
             // 
-            // idDataGridViewTextBoxColumn
+            // passangersBindingSource
             // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // passangerIdDataGridViewTextBoxColumn
-            // 
-            this.passangerIdDataGridViewTextBoxColumn.DataPropertyName = "PassangerId";
-            this.passangerIdDataGridViewTextBoxColumn.HeaderText = "PassangerId";
-            this.passangerIdDataGridViewTextBoxColumn.Name = "passangerIdDataGridViewTextBoxColumn";
-            this.passangerIdDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // statusDataGridViewTextBoxColumn
-            // 
-            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
-            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
-            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
-            this.statusDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // ticketsBindingSource1
-            // 
-            this.ticketsBindingSource1.DataMember = "Tickets";
-            this.ticketsBindingSource1.DataSource = this.rgrDBDataSetBindingSource;
+            this.passangersBindingSource.DataMember = "Passangers";
+            this.passangersBindingSource.DataSource = this.rgrDBDataSet;
             // 
             // label3
             // 
@@ -485,11 +464,6 @@
             this.ageDataGridViewTextBoxColumn.HeaderText = "Age";
             this.ageDataGridViewTextBoxColumn.Name = "ageDataGridViewTextBoxColumn";
             this.ageDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // passangersBindingSource
-            // 
-            this.passangersBindingSource.DataMember = "Passangers";
-            this.passangersBindingSource.DataSource = this.rgrDBDataSet;
             // 
             // ticketsFlightsDataGridView
             // 
@@ -865,6 +839,11 @@
             this.insertPassanger.UseVisualStyleBackColor = true;
             this.insertPassanger.Click += new System.EventHandler(this.insertPassanger_Click);
             // 
+            // ticketsBindingSource1
+            // 
+            this.ticketsBindingSource1.DataMember = "Tickets";
+            this.ticketsBindingSource1.DataSource = this.rgrDBDataSetBindingSource;
+            // 
             // update
             // 
             this.update.Location = new System.Drawing.Point(503, 324);
@@ -905,6 +884,27 @@
             this.tableAdapterManager.TicketsTableAdapter = this.ticketsTableAdapter;
             this.tableAdapterManager.UpdateOrder = rgr.rgrDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // pNameDataGridViewTextBoxColumn1
+            // 
+            this.pNameDataGridViewTextBoxColumn1.DataPropertyName = "PName";
+            this.pNameDataGridViewTextBoxColumn1.HeaderText = "PName";
+            this.pNameDataGridViewTextBoxColumn1.Name = "pNameDataGridViewTextBoxColumn1";
+            this.pNameDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // pSurnameDataGridViewTextBoxColumn1
+            // 
+            this.pSurnameDataGridViewTextBoxColumn1.DataPropertyName = "PSurname";
+            this.pSurnameDataGridViewTextBoxColumn1.HeaderText = "PSurname";
+            this.pSurnameDataGridViewTextBoxColumn1.Name = "pSurnameDataGridViewTextBoxColumn1";
+            this.pSurnameDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // ageDataGridViewTextBoxColumn1
+            // 
+            this.ageDataGridViewTextBoxColumn1.DataPropertyName = "Age";
+            this.ageDataGridViewTextBoxColumn1.HeaderText = "Age";
+            this.ageDataGridViewTextBoxColumn1.Name = "ageDataGridViewTextBoxColumn1";
+            this.ageDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -928,12 +928,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.rgrDBDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgrDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.flightSupportingGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ticketsBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.passangersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.flightBindingSource1)).EndInit();
             this.tabPageTickets.ResumeLayout(false);
             this.tabPageTickets.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ticketsPassangersDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.passangersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ticketsFlightsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ticketsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ticketsBindingSource)).EndInit();
@@ -941,6 +940,7 @@
             this.tabPagePassangers.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.passangersSupportingGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.passangersDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ticketsBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -995,9 +995,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.DataGridView flightSupportingGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn passangerIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource ticketsBindingSource1;
         private System.Windows.Forms.DataGridView passangersSupportingGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
@@ -1030,6 +1027,9 @@
         private System.Windows.Forms.ToolStripMenuItem printToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem passangersListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem flightsInfoToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pNameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pSurnameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ageDataGridViewTextBoxColumn1;
     }
 }
 

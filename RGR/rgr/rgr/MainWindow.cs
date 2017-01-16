@@ -238,11 +238,24 @@ namespace rgr
         }
 
         public void onUpdateFormClose(object value)
-        { 
+        {
+            string sValue = value.ToString();
+            if (cellHeader == "DepartureTime" || cellHeader == "ArrivalTime")
+            {
+                try
+                {
+                    DateTime dt = DateTime.Parse(sValue);
+                    sValue = dt.ToShortDateString();
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Неверный формат даты");
+                }
+            }
             try
             {
                 conn.Open();
-                OleDbCommand cmd = new OleDbCommand("UPDATE " + getCurrentTabName() + " SET " + cellHeader + " = '" + value + "' WHERE Id = " + id + ";", conn);
+                OleDbCommand cmd = new OleDbCommand("UPDATE " + getCurrentTabName() + " SET " + cellHeader + " = '" + sValue + "' WHERE Id = " + id + ";", conn);
                 cmd.ExecuteNonQuery();
             }
             catch (OleDbException ex)
@@ -292,7 +305,9 @@ namespace rgr
         private void flightDataGridView_RowHeaderMouseClick(object sender, EventArgs e)
         {
             string id = flightDataGridView.SelectedRows[0].Cells[0].Value.ToString();
-            flightSupportingGridView.DataSource = fillTable("SELECT * FROM Tickets WHERE FlightId = " + id + ";");
+            //flightSupportingGridView.DataSource = fillTable("SELECT * FROM Tickets WHERE FlightId = " + id + ";");
+            //flightSupportingGridView.DataSource = fillTable("SELECT * FROM [Passangers] p JOIN Tickets t ON p.Id=t.PassangerId JOIN Flight f ON f.Id=t.FlightId;");
+            flightSupportingGridView.DataSource = fillTable("SELECT * FROM Passangers LEFT JOIN Tickets ON Passangers.Id = Tickets.PassangerId WHERE Tickets.FlightId = " + id + ";");
         }
 
         private void passangersDataGridView_RowHeaderMouseClick(object sender, EventArgs e)
@@ -436,5 +451,6 @@ namespace rgr
             ReportWindow report = new ReportWindow(1);
             report.Show();
         }
+
     }
 }
